@@ -1,43 +1,50 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateBoard.aspx.cs" Inherits="PicBook.CreateBoard" %>
+﻿<%@ Page Title="Add Board" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="CreateBoard.aspx.cs" Inherits="PicBook.CreateBoard" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" type="text/css" href="css/board.css" />
+    <script src="scripts/js171.js" type="text/javascript"></script>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 72%;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
     <div>
-        
-        <table class="auto-style1">
+        <br />
+         <h2><%: Title %>.</h2>
+                    <hr />
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron" style="background-color: #f0f0f0; opacity: .95; z-index = -1;">  
+        <table class="auto-style1" width="100%">
             <tr>
-                <td>Board Name</td>
+                <td>BoardName</td>
                 <td>
-                    <asp:TextBox ID="TxtBoardName" runat="server" Width="238px"></asp:TextBox>
+                    <asp:TextBox ID="TxtBoardName" CssClass="form-control" runat="server" Width="344px" Height="35px"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>Description</td>
                 <td>
-                    <asp:TextBox ID="TxtBoardDescription" runat="server" Height="54px" Width="238px"></asp:TextBox>
+                    <asp:TextBox ID="TxtBoardDescription" Textmode="Multiline" resize="none" CssClass="form-control" runat="server" Height="92px" Width="344px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>Who Can Comment</td>
+                <td>
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:ListItem Selected="True" Value="e">Every One</asp:ListItem>
+                        <asp:ListItem Value="f">Friends Only</asp:ListItem>
+                        <asp:ListItem Value="m">Me only</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="BtnCreateBoard" runat="server" OnClick="BtnCreateBoard_Click" Text="Create" />
+                    <asp:Button ID="BtnCreateBoard" runat="server" CssClass="btn btn-primary" OnClick="BtnCreateBoard_Click" Text="Create" />
                 </td>
             </tr>
         </table>
-        
+            </div>
+    </div>
+        </div>
     </div>
         
-    </form>
-</body>
-</html>
+
+</asp:Content>

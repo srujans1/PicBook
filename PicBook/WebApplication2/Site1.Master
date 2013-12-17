@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="PicBook.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+  <head runat="server">
+       <link href="css/master.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <br />
+      
+    <title><%: Page.Title %> - PicBook</title>
+     
+ 
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  </head>
+  <body>
+
+    
+        <form id="Form1" runat="server" cssclass="navbar-form navbar-left"> 
+       <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a class="navbar-brand" runat="server" href="~/allBoards.aspx">PicBook</a>
+                </div>
+                
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/allBoards.aspx">Home</a></li>
+                        <li><a runat="server" href="~/Friends.aspx">Friends</a></li>
+                        <li><a runat="server" href="~/PFriends.aspx">Pending Friend Request</a></li>
+                        <li><a runat="server" href="~/FStream.aspx">Follow Streams</a></li>
+                        <li><a runat="server" href="~/CreateBoard.aspx">Add Board</a></li>
+                        <li><a runat="server" href="~/CreatePin.aspx">Add Pin</a></li>
+                        <li><div style="visibility: hidden">
+                        <asp:Button ID="BtnSearch" runat="server" OnClick="BtnSearch_Click" CssClass="btn btn-primary btn-sm" Text="Search" />
+                            </div></li>
+                        </ul>
+               
+                        <ul class="navbar-form navbar-left">
+                        <li>
+                            <asp:TextBox ID="TxtSearch" runat="server" placeholder="Search" CssClass="form-control col-md-8" />
+                        </li>
+                            </ul>
+         
+                  
+                    
+                        
+                 
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/EditProfile.aspx">Manage</a></li>
+                                <li><a runat="server" href="~/Login2.aspx">Logout</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello,  !</a></li>
+                                <li>
+                                   
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+           </div>
+        
+          			
+          		<div class="container body-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+
+            <footer>
+                <div class="jumbotron" style="background-color: #f0f0f0; opacity: .8; z-index = -10;">
+                <p>&copy; <%: DateTime.Now.Year %> - Anshul Mehra & Srujan Saggam</p>
+                    </div>
+            </footer>
+        </div>
+      </form>
+  </body>
+</html>
+
+

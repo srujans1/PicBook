@@ -5,20 +5,25 @@ using System.Linq;
 using System.Net;
 using System.Web;
 
-namespace PicBook
+namespace PicBookUtitilies
 {
     public static class Utilities
     {
-        static void DownloadImage(string url,string mid)
+        public static string DownloadImage(string url,string mid, HttpServerUtility obj)
         {
             byte[] data;
+            string path="";
             using (WebClient client = new WebClient())
             {
                 data = client.DownloadData(url);
             }
-           string path="/Images/"+mid+"/"+url.GetHashCode()+".jpg";
-            if(!File.Exists(path))
-                File.WriteAllBytes(path,data);
+            if (data == null)
+                return null;
+            path = "Images/"+mid+"_"+ url.GetHashCode() + ".jpg";
+                if (!File.Exists(obj.MapPath(path)))
+                    File.WriteAllBytes(obj.MapPath(path), data);
+            
+            return path;
         }
 
 

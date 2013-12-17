@@ -18,7 +18,11 @@ namespace PicBook
 
         protected void BtnCreateBoard_Click(object sender, EventArgs e)
         {
-            
+            string mid= Session["mid"].ToString();
+            string bname = TxtBoardName.Text.Trim();
+            string description = TxtBoardDescription.Text.ToString();
+            DAL.PicBookRepository.AddBoard(mid, bname, description,DropDownList1.SelectedValue.ToString());
+            Response.Redirect("~/allBoards.aspx");
         }
     }
 }

@@ -38,6 +38,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.1005\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -57,25 +66,45 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Board.aspx" />
+    <Content Include="AddToStream.aspx" />
+    <Content Include="allBoards.aspx" />
     <Content Include="CreateBoard.aspx" />
     <Content Include="CreatePin.aspx" />
+    <Content Include="CreateUser.aspx" />
     <Content Include="css\board.css" />
+    <Content Include="css\master.css" />
     <Content Include="css\pin.css" />
     <Content Include="css\pin2.css" />
-    <Content Include="Home.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="Pin.aspx" />
+    <Content Include="EditProfile.aspx" />
+    <Content Include="Friends.aspx" />
+    <Content Include="FStream.aspx" />
+    <Content Include="FStreamBoard.aspx" />
+    <Content Include="Images\board.jpg" />
+    <Content Include="Login2.aspx" />
+    <Content Include="member.aspx" />
+    <Content Include="PFriends.aspx" />
+    <Content Include="pin2.aspx" />
     <Content Include="scripts\js171.js" />
-    <Content Include="Web.config" />
+    <Content Include="SearchResults.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Board2.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board.aspx.cs">
-      <DependentUpon>Board.aspx</DependentUpon>
+    <Compile Include="AddToStream.aspx.cs">
+      <DependentUpon>AddToStream.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Board.aspx.designer.cs">
-      <DependentUpon>Board.aspx</DependentUpon>
+    <Compile Include="AddToStream.aspx.designer.cs">
+      <DependentUpon>AddToStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="allBoards.aspx.cs">
+      <DependentUpon>allBoards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="allBoards.aspx.designer.cs">
+      <DependentUpon>allBoards.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateBoard.aspx.cs">
       <DependentUpon>CreateBoard.aspx</DependentUpon>
@@ -91,33 +120,115 @@
     <Compile Include="CreatePin.aspx.designer.cs">
       <DependentUpon>CreatePin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DAL.cs" />
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="CreateUser.aspx.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="CreateUser.aspx.designer.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="DAL\DAL.cs" />
+    <Compile Include="DAL\DataAccess.cs" />
+    <Compile Include="EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pin.aspx.cs">
-      <DependentUpon>Pin.aspx</DependentUpon>
+    <Compile Include="Friends.aspx.cs">
+      <DependentUpon>Friends.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pin.aspx.designer.cs">
-      <DependentUpon>Pin.aspx</DependentUpon>
+    <Compile Include="Friends.aspx.designer.cs">
+      <DependentUpon>Friends.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FStream.aspx.cs">
+      <DependentUpon>FStream.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FStream.aspx.designer.cs">
+      <DependentUpon>FStream.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FStreamBoard.aspx.cs">
+      <DependentUpon>FStreamBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FStreamBoard.aspx.designer.cs">
+      <DependentUpon>FStreamBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login2.aspx.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login2.aspx.designer.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="member.aspx.cs">
+      <DependentUpon>member.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="member.aspx.designer.cs">
+      <DependentUpon>member.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\models.cs" />
+    <Compile Include="PFriends.aspx.cs">
+      <DependentUpon>PFriends.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PFriends.aspx.designer.cs">
+      <DependentUpon>PFriends.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pin2.aspx.cs">
+      <DependentUpon>pin2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pin2.aspx.designer.cs">
+      <DependentUpon>pin2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1 - Copy.Master.cs">
+      <DependentUpon>Site1 - Copy.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1 - Copy.Master.designer.cs">
+      <DependentUpon>Site1 - Copy.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
     <Compile Include="Utilities.cs" />
+    <Compile Include="Board2.aspx.cs">
+      <DependentUpon>Board2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Board2.aspx.designer.cs">
+      <DependentUpon>Board2.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Site.Master" />
+    <Content Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <Content Include="Site1 - Copy.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -125,9 +236,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
