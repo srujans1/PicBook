@@ -28,34 +28,39 @@ namespace PicBook
         {
             string source_url = TxtSourceUrl.Text;
             string url = "";
-            if (ImgFileUpload.HasFile)
-            {
-                string hashcode = ImgFileUpload.FileName.GetHashCode().ToString();
-                string mid = Session["mid"].ToString();
-                string path = "Images/" + mid + "_" + hashcode + ".jpg";
-                int i = 1;
-                while (File.Exists(Server.MapPath(path)))
-                {
-                    i++;
-                    path = "Images/" + mid + "_" + hashcode + i + ".jpg";
-                }
-                url = path;
-                ImgFileUpload.SaveAs(Server.MapPath(path));
-                lblError.Text = "Uploaded successfully";
-            }
-            else
-            {
-                lblError.Text = "Please Select a File";
-                return;
-            }
             if (rbUrl.Checked)
             {
-                
+
                 url = PicBookUtitilies.Utilities.DownloadImage(TxtUrl.Text, Session["mid"].ToString(), Server);
                 if (url == null)
                 {
                     return;
                 }
+            }
+            else 
+            {
+                if (ImgFileUpload.HasFile)
+                {
+                    string hashcode = ImgFileUpload.FileName.GetHashCode().ToString();
+                    string mid = Session["mid"].ToString();
+                    string path = "Images/" + mid + "_" + hashcode + ".jpg";
+                    int i = 1;
+                    while (File.Exists(Server.MapPath(path)))
+                    {
+                        i++;
+                        path = "Images/" + mid + "_" + hashcode + i + ".jpg";
+                    }
+                    url = path;
+                    ImgFileUpload.SaveAs(Server.MapPath(path));
+                    lblError.Text = "Uploaded successfully";
+                }
+                else
+                {
+                    lblError.Text = "Please Select a File";
+                    return;
+                }
+            
+            
             }
             string pid=DAL.PicBookRepository.AddPin(Session["mid"].ToString(), CbBoard.SelectedValue, url,source_url, TxtDescription.Text,Server);
             string[] hashtags = TxtHashTag.Text.Split(' ');
@@ -63,6 +68,7 @@ namespace PicBook
             {
                 DAL.PicBookRepository.PinTag(pid, s);
             }
+
         
         }
 
