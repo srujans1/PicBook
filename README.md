@@ -16,4 +16,7 @@ Features/workflows:<br/>
 
 <b>Please have a look at documentation under ./documentation folder for details about the project.<b><br/>
 
+How to run the project?
+open the project in visual studio and run it locally.
+
 
